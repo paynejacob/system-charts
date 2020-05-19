@@ -13,12 +13,10 @@ nodeSelector: {}
 #   type: RollingUpdate
 
 tolerations:
-  - key: node-role.kubernetes.io/etcd
-    value: "true"
-    operator: Equals
-  - key: node-role.kubernetes.io/controlplane
-    value: "true"
-    operator: Equals
+  - effect: NoSchedule
+    operator: Exists
+  - effect: NoExecute
+    operator: Exists
 
 ## Resource limits & requests
 ## Ref: https://kubernetes.io/docs/user-guide/compute-resources/
