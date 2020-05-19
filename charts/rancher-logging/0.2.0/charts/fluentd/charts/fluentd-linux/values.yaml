@@ -28,6 +28,8 @@ annotations: {}
 tolerations:
   - effect: NoSchedule
     operator: Exists
+  - effect: NoExecute
+    operator: Exists
 
 nodeSelector: {}
 
@@ -40,12 +42,6 @@ service:
 
 cluster:
   dockerRoot: /var/lib/docker
-
-service:
-  ports:
-    - name: metric
-      port: 24231
-      targetPort: metric
 
 configmapReload:
   name: reloader
